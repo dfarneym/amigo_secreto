@@ -2,6 +2,21 @@
 
 let amigos = [];
 
+function selecionaAmigo(){
+    //Verifica se o array está vazio
+    if (amigos.length == 0) {
+        alert("Não há amigos na lista.");
+        return;
+    }
+    //Sorteia o amigo
+    const sorteitoAmigoAleatorio = Math.floor(Math.random() * amigos.length);
+    const amigoSelecionado = amigos[sorteitoAmigoAleatorio];
+
+    //Exibe o amigo selecionado
+    document.getElementById("resultado").textContent = `O amigo selecionado é : ${amigoSelecionado}`;
+    
+}
+
 function adicionarAmigo(){
     
     const amigo = document.getElementById("amigo").value;
@@ -26,7 +41,7 @@ function atualizarLista(){
     const listaAmigos = document.getElementById("listaAmigos");
     
     listaAmigos.innerHTML = "";
-    console.log('Lista de amigos HTML limpa');
+    
     
     for (let i = 0; i < amigos.length; i++) {
         
@@ -35,9 +50,9 @@ function atualizarLista(){
         novoItem.textContent = amigos[i];
         
         listaAmigos.appendChild(novoItem);
-        console.log("Adicionando a lista HTML");
+        
     }
 
-    console.log("Lista de amigos atualizada")
+    
 
 }
